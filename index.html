@@ -55,12 +55,10 @@
     </div>
 
     <script>
-        // Smooth scrolling ve aktif link styling
         document.querySelectorAll('.sidebar-nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                // Eğer Discord linki ise yeni sekmede aç
                 if (this.id === "discordLink") {
-                  return; // Direkt linke gitmesini engellemez, default davranışına izin verir.
+                  return; 
                 }
 
                 e.preventDefault();
