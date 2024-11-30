@@ -1,20 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RedStone Studios</title>
-    <link rel="stylesheet" href="main.css"> 
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        .section h2 {
+            font-size: 36px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .large-heading {
+            font-size: 48px;
+            color: #ff4500;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .sidebar-nav a.active {
+            color: #ff4500;
+            font-weight: bold;
+        }
+
+        .content-area {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
 </head>
 <body>
     <div class="main-container">
         <aside class="sidebar">
             <nav class="sidebar-nav">
                 <a href="#home" class="active">Biz Kimiz?</a>
-                <a href="#services">Sunucular</a>
+                <a href="#services" class="services-link">RolePlay'ler</a>
+                <a href="#hizmetler" class="toggle-service">Verdiğimiz Hizmetler</a>
                 <a href="#portfolio">Gelecek Projelerimiz</a>
-                <a href="https://discord.gg/kPfdAvCp6M" id="discordLink">Discord</a> 
+                <a href="javascript:void(0);" id="discordLink">Discord</a> 
             </nav>
         </aside>
 
@@ -27,24 +62,30 @@
 
             <section id="home" class="section">
                 <h2>Biz Kimiz?</h2>
-                <p>Öncelikle Merhabalar. Hiç Boş Yapmiyacağım Direk Anlatıyorum.</p>
-                <p>Biz 9.02.2023 Tarihinde Kurulmuş Bir GiantAlex RP Sunucuyuz.</p>
-                <p>Sonradan Farklı RP'lere yöneldik. BoraLo, Bobby, CodeMAN, vb.</p>
-                <p>Evet, Eski Kurulmuş Olsak da Bir PRİME Zamanımız vardı.</p>
-                <p>Sunucumuzdaki oyuncularla baya iyi zaman geçiriyorduk.</p>
-                <p>Hâlâ da geçiriyoruz ama bu sıralar aktifliğimiz düştü.</p>
-                <p>Biz BoraLo RolePlay Sunucusuyuz.</p>
+                <p>Biz 9.02.2023 Tarihinde Kurulmuş Bir GiantAlex RP Sunucusuyuz.<p> 
+                <p>Sonradan Farklı RP'lere yöneldik. -BoraLo RP, -Bobby RP, -CodeMAN-RP vb.<p>
+                <p>Kısaca Biz BoraLo RolePlay Sunucusuyuz.</p>
             </section>
 
-
-            <section id="services" class="section">
-                <h2>Sunucular</h2>
+            <section id="services" class="section hidden">
+                <h2>RolePlay'ler</h2>
                 <p>Curse RP, Code-MAN RP, Bobby RP - | coming soon. |</p>
-                <p>Curse ne demek?</p>
-                <p>Curse, kendi efsanenizi oluşturup oynayabileceğiniz bir serverdır.</p>
             </section>
 
-            <section id="portfolio" class="section">
+            <section id="hizmetler" class="section hidden">
+                <h2 class="large-heading">Verdiğimiz Hizmetler</h2>
+                <div class="service-content">
+                    <ul>
+                        <li>Özel Roleplay Sunucuları</li>
+                        <li>MCreator Mod Yapma Rehberi</li>
+                        <li>İyi Ve Güzel Modlarımız</li>
+                        <li>Hızlı Destek Yardım</li>
+                    </ul>
+                    <p>Hizmetlerimizi daha iyi hale getirmek için sürekli gelişim sağlıyoruz!</p>
+                </div>
+            </section>
+
+            <section id="portfolio" class="section hidden">
                 <h2>Gelecek Projelerimiz</h2>
                 <p>1- VDS'li Sunucular</p>
                 <p>2- Bobby RP</p>
@@ -56,22 +97,34 @@
 
     <script>
         document.querySelectorAll('.sidebar-nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.id === "discordLink") {
-                  return; 
-                }
-
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                if (this.id === 'discordLink') {
+                    window.open('https://discord.gg/kPfdAvCp6M', '_blank');
+                    return;
+                }
+
+                document.querySelectorAll('.content-area > .section').forEach(section => {
+                    section.classList.add('hidden');
                 });
+
+                const targetSection = document.querySelector(this.getAttribute('href'));
+                targetSection.classList.remove('hidden');
 
                 document.querySelectorAll('.sidebar-nav a').forEach(link => link.classList.remove('active'));
                 this.classList.add('active');
+
+                if (this.classList.contains('toggle-service')) {
+                    const heading = document.querySelector('#hizmetler .large-heading');
+                    heading.style.fontSize = '48px'; 
+                    heading.style.color = '#ff4500'; 
+                }
             });
         });
 
+        document.querySelector('.sidebar-nav a').classList.add('active');
+        document.querySelector('#home').classList.remove('hidden');
     </script>
 </body>
 </html>
