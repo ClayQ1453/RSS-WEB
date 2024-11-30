@@ -1,4 +1,4 @@
-/* Sayfa Yükleme Animasyonu */
+
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
@@ -11,13 +11,13 @@ body {
     margin: 0;
     display: flex;
     min-height: 100vh;
-    overflow-y: scroll;  /* Kaydırma ekleniyor */
-    -ms-overflow-style: none;  /* IE ve Edge için kaydırma çubuğunu gizler */
-    scrollbar-width: none;  /* Firefox için kaydırma çubuğunu gizler */
+    overflow-y: scroll; 
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
     animation: fadeIn 1s ease-out;
 }
 
-/* Main Container Animasyonu */
+
 @keyframes slideIn {
     0% { transform: translateY(-30px); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
@@ -32,11 +32,10 @@ body {
     animation: slideIn 1s ease-out;
 }
 
-/* Header kısmı, profil resmini ve site ismini yerleştirme */
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;  /* Site ismi ve profil resmini ayırmak için */
+    justify-content: space-between;  
     padding: 20px;
     background-color: #40444b;
 }
@@ -48,7 +47,7 @@ header {
 
 .site-logo img {
     border-radius: 50%;
-    width: 100px;  /* Profil resminin boyutu */
+    width: 100px;  
     height: 100px;
     margin-right: 20px;
 }
@@ -59,7 +58,6 @@ header {
     color: #333;
 }
 
-/* Sidebar Animasyonu */
 @keyframes slideInSidebar {
     0% { transform: translateX(-50px); opacity: 0; }
     100% { transform: translateX(0); opacity: 1; }
@@ -72,13 +70,12 @@ header {
     border-radius: 10px 0 0 10px;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
     animation: slideInSidebar 0.8s ease-out;
-    position: sticky;  /* Sidebar sabit kaldığı için kaydırıldığında sabit duracak */
+    position: sticky; 
     top: 20px;
-    height: 100vh;  /* Tam ekran yüksekliği */
-    overflow-y: auto;  /* İçerik kaydırılabilir */
+    height: 100vh; 
+    overflow-y: auto; 
 }
 
-/* Menü Hover Efekti */
 .sidebar-nav a {
     display: block;
     color: #dcddde;
@@ -92,7 +89,7 @@ header {
 .sidebar-nav a:hover {
     background-color: #ff6600b0;
     color: #40444b;
-    transform: scale(1.1); /* Hoverda büyütme */
+    transform: scale(1.1);
 }
 
 .sidebar-nav a.active {
@@ -101,7 +98,7 @@ header {
     transform: scale(1.05);
 }
 
-/* İçerik Animasyonu */
+
 @keyframes slideInContent {
     0% { transform: translateX(30px); opacity: 0; }
     100% { transform: translateX(0); opacity: 1; }
@@ -114,11 +111,10 @@ header {
     border-radius: 0 10px 10px 0;
     margin-left: 20px;
     animation: slideInContent 0.8s ease-out;
-    max-height: 100vh;  /* İçeriğin ekranı aşmaması */
-    overflow-y: auto;  /* İçerik kaydırılabilir */
+    max-height: 100vh; 
+    overflow-y: auto; 
 }
 
-/* Bölüm Başlıkları ve Metinler */
 .section {
     padding: 30px;
     margin-bottom: 20px;
@@ -132,9 +128,9 @@ header {
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Profil Resmi Animasyonu */
+
 .profile-image {
-    width: 300px;  /* Resmi büyütme */
+    width: 300px;  
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
@@ -144,17 +140,17 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
 
-    /* Yuvarlak çerçevenin arka planını gri yapmak */
-    background-color: #2f3136;  /* Arka plan gri */
-    padding: 20px;  /* Çerçeve ile resim arasında boşluk bırakmak için */
+
+    background-color: #2f3136;  
+    padding: 20px; 
 }
 
 .profile-image:hover {
-    transform: scale(1.1); /* Profil resmi hover efek */
+    transform: scale(1.1); 
 }
 
 
-/* Başlık ve Metin Renk Düzenlemeleri */
+
 h2 {
     font-size: 24px;
     color: #ff6600;
@@ -167,7 +163,7 @@ p {
     color: #dcddde;
 }
 
-/* Kaydırma çubuğunu gizleme */
+
 ::-webkit-scrollbar {
-    display: none; /* Chrome, Safari ve Edge için */
+    display: none; 
 }
