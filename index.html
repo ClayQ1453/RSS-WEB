@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedStone Studios</title>
+    <link rel="stylesheet" href="main.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="#home" class="active">Biz Kimiz?</a>
+                <a href="#services">Sunucular</a>
+                <a href="#portfolio">Gelecek Projelerimiz</a>
+                <a href="https://discord.gg/kPfdAvCp6M" id="discordLink">Discord</a> <!--- Direkt linki buraya ekledik -->
+            </nav>
+        </aside>
+
+        <div class="content-area">
+            <header>
+                <div class="site-logo">
+                    <img src="https://cdn.discordapp.com/attachments/1283437371781546035/1312488235598872639/RSS.png?ex=674cad6c&is=674b5bec&hm=ce925576d1bf782c4ec38fc21560e31710ab918aa51107e664b5f1af0fd72ee7&" alt="RedStone Studios Logo" class="profile-image">
+                </div>
+            </header>
+
+            <section id="home" class="section">
+                <h2>Biz Kimiz?</h2>
+                <p>Öncelikle Merhabalar. Hiç Boş Yapmiyacağım Direk Anlatıyorum.</p>
+                <p>Biz 9.02.2023 Tarihinde Kurulmuş Bir GiantAlex RP Sunucuyuz.</p>
+                <p>Sonradan Farklı RP'lere yöneldik. BoraLo, Bobby, CodeMAN, vb.</p>
+                <p>Evet, Eski Kurulmuş Olsak da Bir PRİME Zamanımız vardı.</p>
+                <p>Sunucumuzdaki oyuncularla baya iyi zaman geçiriyorduk.</p>
+                <p>Hâlâ da geçiriyoruz ama bu sıralar aktifliğimiz düştü.</p>
+                <p>Biz BoraLo RolePlay Sunucusuyuz.</p>
+            </section>
+
+
+            <section id="services" class="section">
+                <h2>Sunucular</h2>
+                <p>Curse RP, Code-MAN RP, Bobby RP - | coming soon. |</p>
+                <p>Curse ne demek?</p>
+                <p>Curse, kendi efsanenizi oluşturup oynayabileceğiniz bir serverdır.</p>
+            </section>
+
+            <section id="portfolio" class="section">
+                <h2>Gelecek Projelerimiz</h2>
+                <p>1- VDS'li Sunucular</p>
+                <p>2- Bobby RP</p>
+                <p>3- RSS Launcher | RedStone Studios Launcher</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling ve aktif link styling
+        document.querySelectorAll('.sidebar-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Eğer Discord linki ise yeni sekmede aç
+                if (this.id === "discordLink") {
+                  return; // Direkt linke gitmesini engellemez, default davranışına izin verir.
+                }
+
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                document.querySelectorAll('.sidebar-nav a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+    </script>
+</body>
+</html>
