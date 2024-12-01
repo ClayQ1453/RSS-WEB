@@ -3,6 +3,26 @@
     100% { opacity: 1; }
 }
 
+@keyframes slideIn {
+    0% { transform: translateY(-30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInSidebar {
+    0% { transform: translateX(-50px); opacity: 0; } 
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInContent {
+    0% { transform: translateX(30px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInSection {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #36393f;
@@ -14,11 +34,6 @@ body {
     -ms-overflow-style: none; 
     scrollbar-width: none; 
     animation: fadeIn 1s ease-out;
-}
-
-@keyframes slideIn {
-    0% { transform: translateY(-30px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
 }
 
 .main-container {
@@ -57,11 +72,6 @@ header {
     color: #333; 
 }
 
-@keyframes slideInSidebar {
-    0% { transform: translateX(-50px); opacity: 0; } 
-    100% { transform: translateX(0); opacity: 1; }
-}
-
 .sidebar {
     flex: 0 0 250px;
     background-color: #2f3136;
@@ -74,7 +84,6 @@ header {
     height: 100vh;
     overflow-y: auto;
 }
-
 
 .sidebar-nav a {
     display: block;
@@ -97,14 +106,6 @@ header {
     font-weight: bold; 
 }
 
-
-
-
-@keyframes slideInContent {
-    0% { transform: translateX(30px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
-}
-
 .content-area {
     flex: 1;  
     background-color: #40444b;
@@ -114,7 +115,18 @@ header {
     overflow-y: auto; 
 }
 
+.section {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSection 0.8s ease-out forwards;
+}
 
+.section.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
 
 .section h2 {
     font-size: 36px;
@@ -130,20 +142,11 @@ header {
     margin-bottom: 20px;
 }
 
-
-@keyframes fadeInSection {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-
-
 .profile-image-container {
     display: block;
     margin-bottom: 20px;
     text-align: center; 
 }
-
 
 .profile-image {
     width: 500px;
@@ -157,15 +160,11 @@ header {
     display: block; 
     margin-left: auto;
     margin-right: auto;
-
 }
-
 
 .profile-image:hover {
     transform: scale(1.1);
 }
-
-
 
 h2 {
     font-size: 24px;
@@ -179,6 +178,53 @@ p {
     color: #dcddde;
 }
 
+.youtube-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.youtube-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.youtube-link:hover {
+    transform: scale(1.1);
+}
+
+.youtube-logo {
+    width: 120px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.youtube-link span {
+    font-size: 18px;
+    color: #ff6600;
+    font-weight: bold;
+}
+
+#discordLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#discordLink i {
+    color: #7289da;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+#discordLink:hover i {
+    transform: rotate(360deg);
+}
 
 ::-webkit-scrollbar {
     display: none;
