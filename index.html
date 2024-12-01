@@ -6,40 +6,6 @@
     <title>RedStone Studios</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <style>
-        .section h2 {
-            font-size: 36px;
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .section p {
-            font-size: 18px;
-            line-height: 1.6;
-            text-align: center;
-        }
-
-        .large-heading {
-            font-size: 48px;
-            color: #ff4500;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .sidebar-nav a.active {
-            color: #ff4500;
-            font-weight: bold;
-        }
-
-        .content-area {
-            transition: all 0.3s ease-in-out;
-        }
-    </style>
 </head>
 <body>
     <div class="main-container">
@@ -49,7 +15,10 @@
                 <a href="#services" class="services-link">RolePlay'ler</a>
                 <a href="#hizmetler" class="toggle-service">Verdiğimiz Hizmetler</a>
                 <a href="#portfolio">Gelecek Projelerimiz</a>
-                <a href="javascript:void(0);" id="discordLink">Discord</a> 
+                <a href="#bilgi" class="toggle-service">Bilgi</a>
+                <a href="javascript:void(0);" id="discordLink">
+                    <i class="fab fa-discord"></i> Discord
+                </a> 
             </nav>
         </aside>
 
@@ -60,19 +29,24 @@
                 </div>
             </header>
 
-            <section id="home" class="section">
+            <section id="home" class="section visible">
                 <h2>Biz Kimiz?</h2>
-                <p>Biz 9.02.2023 Tarihinde Kurulmuş Bir GiantAlex RP Sunucusuyuz.<p> 
-                <p>Sonradan Farklı RP'lere yöneldik. -BoraLo RP, -Bobby RP, -CodeMAN-RP vb.<p>
+                <p>Biz RedStone Studios'uz <p>
+                <p>Biz 9.02.2023 Tarihinde Kurulmuş Bir GiantAlex RP Sunucusuyuz.</p>
+                <p>Sonradan Farklı RP'lere yöneldik. -BoraLo RP, -Bobby RP, -CodeMAN-RP vb.</p>
                 <p>Kısaca Biz BoraLo RolePlay Sunucusuyuz.</p>
             </section>
 
-            <section id="services" class="section hidden">
-                <h2>RolePlay'ler</h2>
-                <p>Curse RP, Code-MAN RP, Bobby RP - | coming soon. |</p>
+            <section id="services" class="section">
+                <h1 style="font-size: 3em; color: rgb(26, 26, 26); margin-bottom: 20px;">RolePlay'ler</h1>
+                <ul>
+                    <li style="margin-bottom: 20px;"> | Curse RP | </li>
+                    <li style="margin-bottom: 20px;"> | Code-MAN RP | </li>
+                    <li style="margin-bottom: 20px;"> | Bobby RP | (coming soon..) </li>
+                </ul>
             </section>
 
-            <section id="hizmetler" class="section hidden">
+            <section id="hizmetler" class="section">
                 <h2 class="large-heading">Verdiğimiz Hizmetler</h2>
                 <div class="service-content">
                     <ul>
@@ -85,11 +59,26 @@
                 </div>
             </section>
 
-            <section id="portfolio" class="section hidden">
+            <section id="portfolio" class="section">
                 <h2>Gelecek Projelerimiz</h2>
                 <p>1- VDS'li Sunucular</p>
                 <p>2- Bobby RP</p>
                 <p>3- RSS Launcher | RedStone Studios Launcher</p>
+            </section>
+
+            <section id="bilgi" class="section">
+                <h2>Bilgi</h2>
+                <p>YouTube Platformlarımız</p>
+                <div class="youtube-links">
+                    <a href="https://www.youtube.com/@ClayQ_1453" target="_blank" class="youtube-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="ClayQ YouTube Kanalı" class="youtube-logo">
+                        <span>ClayQ</span>
+                    </a>
+                    <a href="https://youtube.com/@redstonestudios2616?si=LTxwW4qS8eL8Dhz7" target="_blank" class="youtube-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="RedStone Studios YouTube Kanalı" class="youtube-logo">
+                        <span>RedStone Studios</span>
+                    </a>
+                </div>
             </section>
 
         </div>
@@ -106,25 +95,19 @@
                 }
 
                 document.querySelectorAll('.content-area > .section').forEach(section => {
-                    section.classList.add('hidden');
+                    section.classList.remove('visible');
                 });
 
                 const targetSection = document.querySelector(this.getAttribute('href'));
-                targetSection.classList.remove('hidden');
+                targetSection.classList.add('visible');
 
                 document.querySelectorAll('.sidebar-nav a').forEach(link => link.classList.remove('active'));
                 this.classList.add('active');
-
-                if (this.classList.contains('toggle-service')) {
-                    const heading = document.querySelector('#hizmetler .large-heading');
-                    heading.style.fontSize = '48px'; 
-                    heading.style.color = '#ff4500'; 
-                }
             });
         });
 
         document.querySelector('.sidebar-nav a').classList.add('active');
-        document.querySelector('#home').classList.remove('hidden');
+        document.querySelector('#home').classList.add('visible');
     </script>
 </body>
 </html>
